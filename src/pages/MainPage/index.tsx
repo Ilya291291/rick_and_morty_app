@@ -1,21 +1,32 @@
 import React, {useState, useEffect} from 'react';
 import './index.scss';
-import characters from './fixtures/characters.json'
+import { getCharacters } from '../../services/getCharacters';
 
 export default function MainPage() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    Promise.resolve().then(() => {
-      setData(characters)
-    });
+    getCharacters().then(result => {
+      setData(result)
+    })
   }, []);
 
-  console.log(characters);
-
   return (
-    <section>
-        MainPage
+    <section className='mainpage'>
+        {data?.length && data.map((item) => (
+          <div className='card' key={item.id}>
+            <div><img src={item.image} alt={item.image} /></div>
+            <div className='info_wrapper'>
+              <span>{`Статус: ${item.status}`}</span>
+              <span>{`Вид: ${item.species}`}</span>
+              <span>{`Пол: ${item.gender}`}</span>
+            </div>
+            <div>
+              <span>{`Имя: ${item.name}`}</span>
+            </div>
+            <small>{item.created}</small>
+          </div>
+        ))}
     </section>
   )
 }

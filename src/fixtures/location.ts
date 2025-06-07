@@ -1,4 +1,4 @@
-[
+const LOCATION_URL = [
   {
     "id": 1,
     "name": "Earth (C-137)",
@@ -140,3 +140,5 @@
     "created": "2017-11-18T19:33:01.173Z"
   }
 ]
+
+export default LOCATION_URL

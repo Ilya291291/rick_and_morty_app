@@ -1,4 +1,4 @@
-[
+const EPISODE_URL = [
   {
     "id": 1,
     "name": "Pilot",
@@ -140,3 +140,5 @@
     "created": "2017-11-10T12:56:35.772Z"
   }
 ]
+
+export default EPISODE_URL
