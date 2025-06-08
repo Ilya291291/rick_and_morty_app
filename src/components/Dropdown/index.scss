@@ -1,3 +1,44 @@
+.form {
+    padding-bottom: 30px;
+    border-radius: 5px;
+}
 .dropdown {
     display: flex
+}
+
+.custom_select {
+    border: 2px solid #ddd;
+    background: #eee;
+    padding: 10px;
+    transition: 0.4s;
+    width: 100%;
+}
+.custom_select:hover,
+.custom_select:focus {
+  background: #ddd;
+}
+.custom_select {
+    color: #999;
+    transition: transform 0.4s;
+}
+.option {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+  
+    border: 2px solid #ddd;
+    background: #eee;
+    padding: 10px;
+    transition: 0.4s;
+}
+.option:first-of-type {
+    border-radius: 8px 8px 0 0;
+}
+  
+.option:last-of-type {
+    border-radius: 0 0 8px 8px;
+}
+  
+.option:not(option:last-of-type) {
+    border-bottom: none;
 }

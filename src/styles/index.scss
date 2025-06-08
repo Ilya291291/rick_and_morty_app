@@ -3,6 +3,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
+  background-color: #909edd80;
 }
 
 
@@ -12,4 +13,7 @@ body {
 }
 a {
   text-decoration: none;
+}
+h1, h2 {
+  color: gray;
 }

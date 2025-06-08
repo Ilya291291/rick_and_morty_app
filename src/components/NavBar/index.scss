@@ -2,6 +2,25 @@
     color: #fff;
     padding: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    background-color: #e2e8ed;
+    border-radius: 5px;
+}
+.navbar_img_logo {
+    max-width: 200px;
+    cursor: pointer;
+    flex: 1;
+}
+.navbar_img_logo img {
+    width: 100%;
+}
+.navbar_nav_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.active {
+    opacity: 0.3;
 }

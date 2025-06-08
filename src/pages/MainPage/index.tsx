@@ -1,32 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './index.scss';
-import { getCharacters } from '../../services/getCharacters';
+import { NavLink } from 'react-router-dom';
+import hello_icon from '../../assets/hello_icon.webp'
 
 export default function MainPage() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    getCharacters().then(result => {
-      setData(result)
-    })
-  }, []);
 
   return (
     <section className='mainpage'>
-        {data?.length && data.map((item) => (
-          <div className='card' key={item.id}>
-            <div><img src={item.image} alt={item.image} /></div>
-            <div className='info_wrapper'>
-              <span>{`Статус: ${item.status}`}</span>
-              <span>{`Вид: ${item.species}`}</span>
-              <span>{`Пол: ${item.gender}`}</span>
-            </div>
-            <div>
-              <span>{`Имя: ${item.name}`}</span>
-            </div>
-            <small>{item.created}</small>
-          </div>
-        ))}
+      <h1>Рады приветствовать тебя на этой странице</h1>
+      <div className='mainpage_img'>
+        <img src={hello_icon} alt="greetings, my friend from Ricky and Morty" />
+      </div>
+      <h2>Используй кнопку ниже для перехода на страницу категорий</h2>
+      <NavLink to="/category">Здесь можно выбрать категорию</NavLink>
     </section>
   )
 }
