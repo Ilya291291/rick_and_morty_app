@@ -5,7 +5,14 @@ body {
   margin: 0;
   background-color: #909edd80;
 }
-
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  padding: 30px;
+}
 
 * {
   box-sizing: border-box;
@@ -13,6 +20,9 @@ body {
 }
 a {
   text-decoration: none;
+  color: none;
+  transition: all 0.3s ease-in-out;
+  color: gray;
 }
 h1, h2 {
   color: gray;

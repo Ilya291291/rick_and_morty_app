@@ -1,0 +1,38 @@
+.form_submit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.radio_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 15px 0;
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+    border: 1px solid #eee;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    margin-top: 30px;
+}
+.radio_flex_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error {
+    outline: 2px solid red;
+}
+.errortxt {
+    color: red;
+}
+.valid {
+    outline: 2px solid greenyellow;
+}

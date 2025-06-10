@@ -1,0 +1,54 @@
+.input_wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    // width: 100%;
+    max-width: 200px;
+    min-height: 40px;
+    justify-content: center;
+}
+.label {
+    display: flex;
+    border: 1px solid #eee;
+}
+// .label::before {
+//     content: '@'
+// }
+
+input {
+    border: none;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    outline: none;
+    padding: 12px 3px 12px 15px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.valid {
+    outline: 2px solid greenyellow;
+}
+
+.error {
+    outline: 2px solid red;
+}
+.errortxt {
+    color: red;
+}
+.required {
+    color: red;
+}
+.focused {
+    border-color: #228be6;
+}
+.radio {
+    flex-grow: 0;
+    min-width: 0;
+    outline: none;
+    border: none;
+    border-color: transparent;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 0;
+}
