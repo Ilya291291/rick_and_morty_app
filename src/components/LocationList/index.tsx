@@ -1,25 +1,75 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import './index.scss';
-import { getLocation } from '../../services/getLocation';
 import LocationItem from './LocationItem';
-import { ILocation } from '../../types/types';
+import { IData, ILocation } from '../../types/types';
+import { useFetch } from '../../hooks/useFetch';
+import { Category } from '../../types/types';
+import ErrorBoundary from '../ErrorBoundary';
 
 export default function LocationList(){
-  const [locations, setLocations] = useState<ILocation[] | null>(null);
-  
-  useEffect(() => {
-    getLocation().then(result => {
-      setLocations(result)
-    })
-  }, []);
+
+ const pagenum = useRef(1)
+   const [isIntersecting, setIsIntersecting] = useState(false);
+ 
+   const { 
+     data,
+     hasMore, 
+     isLoading,
+     error
+   } = useFetch(`https://rickandmortyapi.com/api/${Category.Location}`, {page: pagenum.current})
+
+   const locations = data as ILocation[]
+ 
+   const observer = useRef<IntersectionObserver | null>(null)
+ 
+   const lastNode = useCallback((node: HTMLAnchorElement) => {
+ 
+     if(isLoading || !hasMore){
+       return
+     }
+ 
+     if(observer.current){
+       observer.current.disconnect()
+     }
+ 
+     const observerOptions = {
+       root: null,
+       rootMargin: '0px 0px 200px 0px',
+       threshold: 0.1
+     };
+ 
+     observer.current = new IntersectionObserver((entries) => {
+       if(entries[0].isIntersecting && hasMore && !isIntersecting){
+         setIsIntersecting(true);
+         pagenum.current+=1;
+       }else {
+         setIsIntersecting(false);
+       }
+     }, 
+       observerOptions
+     )
+     if(node){
+       observer.current.observe(node)
+     }
+   }, [hasMore, isLoading, isIntersecting])
+
   return (
-    <div className='locations_wrapper'>
-      {locations && locations.length > 0 && locations.map((item: ILocation) => {
-        return (
-          <LocationItem key={item.id} {...item} />
-        );
-      })}
-    </div>
+    <ErrorBoundary>
+      <div className='locations_wrapper'>
+        {
+          (Array.isArray(locations) && !error) && locations?.length > 0 && locations.map((item: ILocation, index) => {
+            if(locations?.length - 2 === index + 1){
+              return (
+                <LocationItem key={item.id} {...item} ref={lastNode} />
+              )
+            }else {
+              return (
+                <LocationItem key={item.id} {...item} />
+              )
+            }})
+          }
+      </div>
+    </ErrorBoundary>
   );
 }
 

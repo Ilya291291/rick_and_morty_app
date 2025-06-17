@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import './index.scss';
-import { getEpisode } from '../../services/getEpisode';
 import { IEpisode } from '../../types/types';
+import { useFetch } from '../../hooks/useFetch';
+import { Category } from '../../types/types';
 
 export default function EpisodesDetailedPage() {
-  const { id }: { id?: string } = useParams();
-  const [episode, setepisode] = useState<IEpisode | null>(null);
-  useEffect(() => {
-    getEpisode()
-    .then((response) => {
-      const foundEpisode: IEpisode | undefined = response.find(episode => episode.id === (id ? parseInt(id) : NaN))
-      if(foundEpisode){
-        setepisode(foundEpisode)
-      }else {
-        setepisode(null)
-      }
-    })
-  }, [id])
+
+  const { id } = useParams<{ id: string }>();
+  
+   const {
+     data, 
+   } = useFetch(`https://rickandmortyapi.com/api/${Category.Episode}`, {}, id);
+
+  const episode = data as IEpisode | null
+
   return (
     <section>
       {episode && 

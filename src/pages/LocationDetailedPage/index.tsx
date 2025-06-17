@@ -1,23 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './index.scss';
 import { useParams } from 'react-router-dom';
-import { getLocation } from '../../services/getLocation';
 import { ILocation } from '../../types/types';
-
+import { Category } from '../../types/types';
+import { useFetch } from '../../hooks/useFetch';
 export default function LocationDetailedPage() {
-  const {id} = useParams()
-  const [location, setLocation] = useState<ILocation | null>(null);
-  useEffect(() => {
-    getLocation()
-    .then((response) => {
-      const foundEpisode = response.find(episode => episode.id === (id ? parseInt(id) : NaN))
-      if(foundEpisode){
-        setLocation(foundEpisode)
-      }else {
-        setLocation(null)
-      }
-    })
-  }, [id])  
+    const { id } = useParams<{ id: string }>();
+    
+     const {
+       data, 
+     } = useFetch(`https://rickandmortyapi.com/api/${Category.Location}`, {}, id)
+
+  const location = data as ILocation | null
+
   return (
     <section>
       {location && 

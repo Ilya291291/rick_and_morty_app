@@ -10,7 +10,7 @@ interface InputProps {
     name?: string;
     checked?: boolean;
     labelName?: string;
-    error?: boolean | undefined;
+    error?: string | undefined;
     errorText?: string;
     isSubmitted?: boolean;
     requiredFields?: boolean | undefined;
@@ -77,7 +77,7 @@ const Input = memo((props: InputProps) => {
                     placeholder={placeholder && placeholder}
                     checked={checked && checked}
                     disabled={disabled}
-                    requiredFields={requiredFields}
+                    required={requiredFields}
                 />
             </label>
             {error && <span className='errortxt'>{errorText}</span>}

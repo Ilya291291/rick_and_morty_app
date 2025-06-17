@@ -1,17 +1,18 @@
 export enum Category {
     Location = "location",
-    Characters = "characters",
+    Character = "character",
     Episode = "episode"
 }
 
 export interface ICharacter {
-    id: number,
-    name: string,
-    status: string,
-    species: string,
-    gender: string,
-    image: string
-    created: string
+    id?: number | null,
+    name: string | '',
+    status: string | '',
+    species: string | '',
+    gender: string | '',
+    image: string | ''
+    created: string | '',
+    pagenum?: number
 }
 
 export interface IEpisode {
@@ -29,3 +30,5 @@ export interface ILocation {
     dimension: string,
     created: string
 }
+
+export type IData = ICharacter | IEpisode | ILocation | ICharacter[] | IEpisode[] | ILocation[] | null;

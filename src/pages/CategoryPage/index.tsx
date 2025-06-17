@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import './index.scss';
 import Dropdown from '../../components/Dropdown';
 import { Outlet, useSearchParams, useParams } from "react-router";
 import { Category } from '../../types/types';
-import CharactersList from '../../components/CharactersList';
-import EpisodeList from '../../components/EpisodeList';
-import LocationList from '../../components/LocationList';
+import ErrorBoundary from '../../components/ErrorBoundary';
 
+const CharactersList = lazy(() => import('../../components/CharactersList'))
+const EpisodeList = lazy(() => import('../../components/EpisodeList'))
+const LocationList = lazy(() => import('../../components/LocationList'))
 
 export default function CategoryPage() {
     const [searchParams, _] = useSearchParams()
@@ -15,17 +16,19 @@ export default function CategoryPage() {
     const isDetailView = id !== undefined;
 
     return (
-        <section className='category_page'>
-            {!isDetailView && (
-                <>
-                    <h1>Страница категории</h1>
-                    <Dropdown />
-                    {category === Category.Characters && <CharactersList />}
-                    {category === Category.Episode && <EpisodeList />}
-                    {category === Category.Location && <LocationList />}
-                </>
-            )}
-            <Outlet />
-        </section>
+        <ErrorBoundary>
+            <section className='category_page'>
+                {!isDetailView && (
+                    <>
+                        <h1>Страница категории</h1>
+                        <Dropdown />
+                        {category === Category.Character && <CharactersList />}
+                        {category === Category.Episode && <EpisodeList />}
+                        {category === Category.Location && <LocationList />}
+                    </>
+                )}
+                <Outlet />
+            </section>
+        </ErrorBoundary>
     );
 }

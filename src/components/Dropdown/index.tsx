@@ -26,7 +26,7 @@ export default function Dropdown() {
     <form className='form'>
       <select name="category" id="category" value={value} onChange={handleChange} className='custom_select'>
         <option value='' className='option'>Выбери категорию</option>
-        <option value={Category.Characters} className='option'>{Category.Characters}</option>
+        <option value={Category.Character} className='option'>{Category.Character}</option>
         <option value={Category.Location} className='option'>{Category.Location}</option>
         <option value={Category.Episode} className='option'>{Category.Episode}</option>
       </select>
