@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import { useSearchParams } from "react-router";
+import { useSearchParams } from "react-router-dom";
 import './index.scss';
-import { Category } from '../../types/types';
+import { Category } from '../../shared/types/types';
 
 export default function Dropdown() {
 
@@ -26,9 +26,9 @@ export default function Dropdown() {
     <form className='form'>
       <select name="category" id="category" value={value} onChange={handleChange} className='custom_select'>
         <option value='' className='option'>Выбери категорию</option>
-        <option value={Category.Character} className='option'>{Category.Character}</option>
-        <option value={Category.Location} className='option'>{Category.Location}</option>
-        <option value={Category.Episode} className='option'>{Category.Episode}</option>
+        <option value={Category.CHARACTER} className='option'>{Category.CHARACTER}</option>
+        <option value={Category.LOCATION} className='option'>{Category.LOCATION}</option>
+        <option value={Category.EPISODE} className='option'>{Category.EPISODE}</option>
       </select>
     </form>
   )

@@ -2,9 +2,9 @@ import React, { useCallback, useRef, useState } from 'react';
 import './index.scss';
 import CharactersItem from './CharacterItem';
 import { useFetch } from '../../hooks/useFetch';
-import { Category, ICharacter } from '../../types/types';
+import { Category, ICharacter } from '../../shared/types/types';
 import ErrorBoundary from '../ErrorBoundary';
-import { IData } from '../../types/types';
+import { IData } from '../../shared/types/types';
 export default function CharactersList(){
 
   const pagenum = useRef(1)
@@ -16,7 +16,7 @@ export default function CharactersList(){
     isLoading, 
     error,
 
-} = useFetch(`https://rickandmortyapi.com/api/${Category.Character}`, {page: pagenum.current})
+} = useFetch(`https://rickandmortyapi.com/api/${Category.CHARACTER}`, {page: pagenum.current})
 
   const charsList = data as ICharacter[]
 

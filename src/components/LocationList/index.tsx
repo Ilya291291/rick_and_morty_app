@@ -1,9 +1,9 @@
 import React, { useRef, useState, useCallback } from 'react';
 import './index.scss';
 import LocationItem from './LocationItem';
-import { IData, ILocation } from '../../types/types';
+import { IData, ILocation } from '../../shared/types/types';
 import { useFetch } from '../../hooks/useFetch';
-import { Category } from '../../types/types';
+import { Category } from '../../shared/types/types';
 import ErrorBoundary from '../ErrorBoundary';
 
 export default function LocationList(){
@@ -16,7 +16,7 @@ export default function LocationList(){
      hasMore, 
      isLoading,
      error
-   } = useFetch(`https://rickandmortyapi.com/api/${Category.Location}`, {page: pagenum.current})
+   } = useFetch(`https://rickandmortyapi.com/api/${Category.LOCATION}`, {page: pagenum.current})
 
    const locations = data as ILocation[]
  

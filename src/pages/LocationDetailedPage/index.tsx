@@ -1,15 +1,15 @@
 import React from 'react';
 import './index.scss';
 import { useParams } from 'react-router-dom';
-import { ILocation } from '../../types/types';
-import { Category } from '../../types/types';
+import { ILocation } from '../../shared/types/types';
+import { Category } from '../../shared/types/types';
 import { useFetch } from '../../hooks/useFetch';
 export default function LocationDetailedPage() {
     const { id } = useParams<{ id: string }>();
     
      const {
        data, 
-     } = useFetch(`https://rickandmortyapi.com/api/${Category.Location}`, {}, id)
+     } = useFetch(`https://rickandmortyapi.com/api/${Category.LOCATION}`, {}, id)
 
   const location = data as ILocation | null
 

@@ -1,8 +1,8 @@
 import React, { lazy } from 'react';
 import './index.scss';
 import Dropdown from '../../components/Dropdown';
-import { Outlet, useSearchParams, useParams } from "react-router";
-import { Category } from '../../types/types';
+import { Outlet, useSearchParams, useParams } from "react-router-dom";
+import { Category } from '../../shared/types/types';
 import ErrorBoundary from '../../components/ErrorBoundary';
 
 const CharactersList = lazy(() => import('../../components/CharactersList'))
@@ -22,9 +22,9 @@ export default function CategoryPage() {
                     <>
                         <h1>Страница категории</h1>
                         <Dropdown />
-                        {category === Category.Character && <CharactersList />}
-                        {category === Category.Episode && <EpisodeList />}
-                        {category === Category.Location && <LocationList />}
+                        {category === Category.CHARACTER && <CharactersList />}
+                        {category === Category.EPISODE && <EpisodeList />}
+                        {category === Category.LOCATION && <LocationList />}
                     </>
                 )}
                 <Outlet />

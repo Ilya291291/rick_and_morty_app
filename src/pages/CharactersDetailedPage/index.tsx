@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import './index.scss';
-import { ICharacter } from '../../types/types';
-import { Category } from '../../types/types';
+import { ICharacter } from '../../shared/types/types';
+import { Category } from '../../shared/types/types';
 import { useFetch } from '../../hooks/useFetch';
 
 export default function CharactersDetailedPage() {
@@ -11,7 +11,7 @@ export default function CharactersDetailedPage() {
 
   const {
     data, 
-  } = useFetch(`https://rickandmortyapi.com/api/${Category.Character}`, {}, id);
+  } = useFetch(`https://rickandmortyapi.com/api/${Category.CHARACTER}`, {}, id);
 
   const character = data as ICharacter | null;
 

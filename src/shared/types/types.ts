@@ -1,7 +1,7 @@
 export enum Category {
-    Location = "location",
-    Character = "character",
-    Episode = "episode"
+    LOCATION = "location",
+    CHARACTER = "character",
+    EPISODE = "episode"
 }
 
 export interface ICharacter {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import './index.scss';
-import { IEpisode } from '../../types/types';
+import { IEpisode } from '../../shared/types/types';
 import { useFetch } from '../../hooks/useFetch';
-import { Category } from '../../types/types';
+import { Category } from '../../shared/types/types';
 
 export default function EpisodesDetailedPage() {
 
@@ -11,7 +11,7 @@ export default function EpisodesDetailedPage() {
   
    const {
      data, 
-   } = useFetch(`https://rickandmortyapi.com/api/${Category.Episode}`, {}, id);
+   } = useFetch(`https://rickandmortyapi.com/api/${Category.EPISODE}`, {}, id);
 
   const episode = data as IEpisode | null
 

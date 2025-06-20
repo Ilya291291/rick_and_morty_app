@@ -1,9 +1,9 @@
 import React, { useCallback, useRef, useState } from 'react';
 import './index.scss';
 import EpisodesItem from './EpisodeItem';
-import { IEpisode } from '../../types/types';
+import { IEpisode } from '../../shared/types/types';
 import { useFetch } from '../../hooks/useFetch';
-import { Category } from '../../types/types';
+import { Category } from '../../shared/types/types';
 import ErrorBoundary from '../ErrorBoundary';
 
 export default function EpisodeList(){
@@ -16,7 +16,7 @@ const pagenum = useRef(1)
     hasMore, 
     isLoading, 
     error, 
-  } = useFetch(`https://rickandmortyapi.com/api/${Category.Episode}`, {page: pagenum.current})
+  } = useFetch(`https://rickandmortyapi.com/api/${Category.EPISODE}`, {page: pagenum.current})
 
   const episodes = data as IEpisode[]
 

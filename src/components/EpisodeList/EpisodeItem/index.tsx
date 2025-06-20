@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
 import './index.scss';
 import { NavLink } from 'react-router-dom';
-import { Category } from '../../../types/types';
-import { IEpisode } from '../../../types/types';
+import { Category } from '../../../shared/types/types';
+import { IEpisode } from '../../../shared/types/types';
 
 const EpisodeItem = forwardRef<HTMLAnchorElement, IEpisode>((item, ref) => {
   return (
-  <NavLink to={`/category/${Category.Episode}/${item.id}`} className='card' ref={ref}>
+  <NavLink to={`/category/${Category.EPISODE}/${item.id}`} className='card' ref={ref}>
         <div className='info_wrapper'>
           <span>{`Эпизод №: ${item.episode}`}</span>
           <span>{`В эфире с : ${item.air_date}`}</span>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { IData } from '../types/types';
+import { IData } from '../shared/types/types';
 
 interface IOptiosns {
   page?: number | null
