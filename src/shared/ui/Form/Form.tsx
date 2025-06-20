@@ -89,9 +89,6 @@ export const FormfromAnt = () => {
       }
     };
 
-
-    // const [isSubmitted, setIsSubmitted] = useState(false)
-
     const [isFocused, setIsFocused] = useState(false);
     const [passwordVisible, setPasswordVisible] = useState(false);
         
@@ -105,22 +102,22 @@ export const FormfromAnt = () => {
     };
 
     return (
-        <Form onFinish={handleSubmit} form={form}>
+        <Form onFinish={handleSubmit} form={form} labelCol={{ span: 20 }} wrapperCol={{ span: 40 }}>
             <Form.Item 
               name='password' 
-              // noStyle
-              tooltip='Пароль должен содержать не менее 6 символов'
+              noStyle
               rules={
-                [{ 
-                  required: true, message: 'Это поле является обязательным' }, 
-                  { min: 6, message: 'Пароль должен содержать не менее 6 символов' }
+                [
+                  { required: true, message: 'Это поле является обязательным' }, 
+                  { min: 6, message: 'Пароль должен содержать не менее 6 символов' },
+                  { whitespace : true, message: 'Пароль не может быть пустым' },
                 ]
               }
               hasFeedback
-              // validateStatus={errors.password ? 'error' : ''}
-              // help={errors.password}
+              label="Пароль"
+
             >
-                <Flex flex={1} vertical justify="center" align="start" style={{width: '100%'}}>
+                <Flex vertical justify="center" align="start">
                     <Typography.Title level={5}>
                         Пароль <span style={{ color: 'red' }}>*</span>
                     </Typography.Title>
@@ -128,19 +125,17 @@ export const FormfromAnt = () => {
                             // prefix={<LockOutlined/>}
                         placeholder="Введите пароль"
                         name="password"
-                        // variant="borderless"
-                        // value={inputs.password}
+                        variant="filled"
                         autoFocus={true}
-                        // onChange={handleChange}
                         iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                         onBlur={onBlur}
                         onFocus={onFocus}
                         size='large'
                         required
                         style={{
-                            width: '100%',
-                            backgroundColor: 'transparent',
-                            border: '2px solid #d9d9d9',
+                            // width: '100%',
+                            // backgroundColor: 'transparent',
+                            // border: '2px solid #d9d9d9',
                         }}
                     />
                 </Flex>
@@ -160,7 +155,7 @@ export const FormfromAnt = () => {
               // validateStatus={errors.email ? 'error' : ''}
               // help={errors.email}
             >
-                <Flex flex={1} vertical justify="center" align="start" style={{width: '100%'}}>
+                <Flex vertical justify="center" align="start">
                         <Typography.Title level={5}>
                             Email <span style={{ color: 'red' }}>*</span>
                         </Typography.Title>
@@ -168,7 +163,8 @@ export const FormfromAnt = () => {
                             placeholder="Введите Email"
                             name="email"
                             onBlur={onBlur}
-                            onFocus={onFocus}
+                            // onFocus={onFocus}
+                            variant='filled'
                             // value={inputs.email}
                             // onChange={handleChange}
                             autoFocus={true}
@@ -176,15 +172,22 @@ export const FormfromAnt = () => {
                             required
                             size="large"
                             style={{
-                                width: '100%',
+                                // width: '100%',
                                 backgroundColor: 'transparent',
-                                border: '2px solid #d9d9d9',
+                                // & onFocus: backgroundColor : 'transparent',
+                                // border: '2px solid #d9d9d9',
                             }}
+                            onFocus={(e) => e.target.style.backgroundColor = 'transparent'}
+                            onBlur={(e) => e.target.style.backgroundColor = 'transparent'}
                         />
                 </Flex>
             </Form.Item>
             <Form.Item>
-                <Button type='text' htmlType="submit" style={{width: '100%', border: '2px solid #d9d9d9'}}>
+                <Button 
+                  type='text' 
+                  htmlType="submit" 
+                  // style={{width: '100%', border: '2px solid #d9d9d9'}}
+                >
                     Войти
                 </Button>
             </Form.Item>
