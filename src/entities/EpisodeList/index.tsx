@@ -2,9 +2,9 @@ import React, { useCallback, useRef, useState } from 'react';
 import './index.scss';
 import EpisodesItem from './EpisodeItem';
 import { IEpisode } from '../../shared/types/types';
-import { useFetch } from '../../hooks/useFetch';
+import { useFetch } from '../../shared/lib/useFetch';
 import { Category } from '../../shared/types/types';
-import ErrorBoundary from '../ErrorBoundary';
+import ErrorBoundary from '../../components/ErrorBoundary';
 
 export default function EpisodeList(){
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import './index.scss';
 import { IEpisode } from '../../shared/types/types';
-import { useFetch } from '../../hooks/useFetch';
+import { useFetch } from '../../shared/lib/useFetch';
 import { Category } from '../../shared/types/types';
 
 export default function EpisodesDetailedPage() {

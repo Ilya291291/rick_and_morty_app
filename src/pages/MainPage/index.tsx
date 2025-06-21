@@ -3,7 +3,7 @@ import './index.scss';
 import { NavLink } from 'react-router-dom';
 import hello_icon from '../../shared/assets/hello_icon.webp'
 import AuthStatus from '../../components/AuthStatus'
-import { useAuth } from '../../context/AuthProvider';
+import { useAuth } from '../../app/providers/context/AuthProvider';
 
 export default function MainPage() {
 

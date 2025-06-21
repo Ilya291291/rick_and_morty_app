@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import './index.scss';
-import { useAuth } from '../../context/AuthProvider';
+import { useAuth } from '../../app/providers/context/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
 
 interface PrivateRouteProps {

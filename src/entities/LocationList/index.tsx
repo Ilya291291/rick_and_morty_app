@@ -2,9 +2,9 @@ import React, { useRef, useState, useCallback } from 'react';
 import './index.scss';
 import LocationItem from './LocationItem';
 import { IData, ILocation } from '../../shared/types/types';
-import { useFetch } from '../../hooks/useFetch';
+import { useFetch } from '../../shared/lib/useFetch';
 import { Category } from '../../shared/types/types';
-import ErrorBoundary from '../ErrorBoundary';
+import ErrorBoundary from '../../components/ErrorBoundary';
 
 export default function LocationList(){
 

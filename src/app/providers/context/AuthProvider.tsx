@@ -24,7 +24,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
     });
     const login = (newEmail: string, newPassword: string, callback: () => void) => {
         setInputs({email: newEmail, password: newPassword})
-        console.log('newEmail: ' + newEmail, 'newPassword : ' + newPassword)
         localStorage.setItem('inputs', JSON.stringify({email: newEmail, password: newPassword}))
         callback()
     }

@@ -1,10 +1,9 @@
 import React, { useCallback, useRef, useState } from 'react';
 import './index.scss';
 import CharactersItem from './CharacterItem';
-import { useFetch } from '../../hooks/useFetch';
+import { useFetch } from '../../shared/lib/useFetch';
 import { Category, ICharacter } from '../../shared/types/types';
-import ErrorBoundary from '../ErrorBoundary';
-import { IData } from '../../shared/types/types';
+import ErrorBoundary from '../../components/ErrorBoundary';
 export default function CharactersList(){
 
   const pagenum = useRef(1)

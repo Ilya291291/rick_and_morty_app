@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Input from '../../ui/Input';
 import './index.scss';
-import { useAuth } from '../../context/AuthProvider';
+import { useAuth } from '../../app/providers/context/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { FormAnt } from '../../shared/ui/Form/Form'
+import { FormAnt } from '../../shared/ui/Form/AntForm'
 
 const LogIn = () => {
 

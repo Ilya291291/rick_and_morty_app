@@ -1,13 +1,13 @@
 import React, { lazy } from 'react';
 import './index.scss';
-import Dropdown from '../../components/Dropdown';
+import { Dropdown } from '../../shared/ui/Dropdown/index'
 import { Outlet, useSearchParams, useParams } from "react-router-dom";
 import { Category } from '../../shared/types/types';
 import ErrorBoundary from '../../components/ErrorBoundary';
 
-const CharactersList = lazy(() => import('../../components/CharactersList'))
-const EpisodeList = lazy(() => import('../../components/EpisodeList'))
-const LocationList = lazy(() => import('../../components/LocationList'))
+const CharactersList = lazy(() => import('../../entities/CharactersList'))
+const EpisodeList = lazy(() => import('../../entities/EpisodeList'))
+const LocationList = lazy(() => import('../../entities/LocationList'))
 
 export default function CategoryPage() {
     const [searchParams, _] = useSearchParams()

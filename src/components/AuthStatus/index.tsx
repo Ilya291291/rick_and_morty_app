@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss';
-import { useAuth } from '../../context/AuthProvider';
+import { useAuth } from '../../app/providers/context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
 export default function AuthStatus() {

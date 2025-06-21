@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import './index.scss';
 import { ICharacter } from '../../shared/types/types';
 import { Category } from '../../shared/types/types';
-import { useFetch } from '../../hooks/useFetch';
+import { useFetch } from '../../shared/lib/useFetch';
 
 export default function CharactersDetailedPage() {
 

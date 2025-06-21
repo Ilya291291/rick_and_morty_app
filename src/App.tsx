@@ -1,24 +1,23 @@
 import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './widgets/Header';
+import Footer from './widgets/Footer';
 import './styles/index.scss'
-import { AuthProvider } from './context/AuthProvider';
-import AppRoutes from './components/AppRoutes';
-import { FormfromAnt } from './shared/ui/Form/Form'
+import { AuthProvider } from './app/providers/context/AuthProvider';
+import { AppRoutes } from './app/providers/router/index'
+import { CustomLayout } from './app/layout';
 
 function App() {
 
-  console.log('sasas')
-
   return (
-    <div className="App">
+    // <div className="App">
+    <CustomLayout>
       <AuthProvider>
-        <FormfromAnt />
         <Header />
         <AppRoutes />
         <Footer />
       </AuthProvider>
-    </div>
+    </CustomLayout>
+    // </div>
   )
 }
 
