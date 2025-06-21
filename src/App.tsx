@@ -8,10 +8,11 @@ import { FormfromAnt } from './shared/ui/Form/Form'
 
 function App() {
 
+  console.log('sasas')
+
   return (
     <div className="App">
       <AuthProvider>
-        
         <FormfromAnt />
         <Header />
         <AppRoutes />
