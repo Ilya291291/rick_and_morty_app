@@ -3,7 +3,7 @@ import './index.scss';
 import { Dropdown } from '../../shared/ui/Dropdown/index'
 import { Outlet, useSearchParams, useParams } from "react-router-dom";
 import { Category } from '../../shared/types/types';
-import ErrorBoundary from '../../components/ErrorBoundary';
+import ErrorBoundary from '../../features/ErrorBoundary';
 
 const CharactersList = lazy(() => import('../../entities/CharactersList'))
 const EpisodeList = lazy(() => import('../../entities/EpisodeList'))

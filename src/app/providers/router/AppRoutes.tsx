@@ -3,7 +3,7 @@ import MainPage from '../../../pages/MainPage';
 import { Routes, Route } from 'react-router-dom';
 import { Category } from '../../../shared/types/types';
 import { AntForm } from '../../../shared/ui/Form/AntForm'
-import PrivateRoute from '../../../components/PrivateRoute';
+import PrivateRoute from '../../../features/PrivateRoute';
 
 const CategoryPage = lazy(() => import('../../../pages/CategoryPage'))
 const RedirectPage = lazy(() => import('../../../pages/RedirectPage'))

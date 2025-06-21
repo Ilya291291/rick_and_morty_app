@@ -3,7 +3,7 @@ import './index.scss';
 import CharactersItem from './CharacterItem';
 import { useFetch } from '../../shared/lib/useFetch';
 import { Category, ICharacter } from '../../shared/types/types';
-import ErrorBoundary from '../../components/ErrorBoundary';
+import ErrorBoundary from '../../features/ErrorBoundary';
 export default function CharactersList(){
 
   const pagenum = useRef(1)

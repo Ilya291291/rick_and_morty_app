@@ -4,7 +4,7 @@ import LocationItem from './LocationItem';
 import { IData, ILocation } from '../../shared/types/types';
 import { useFetch } from '../../shared/lib/useFetch';
 import { Category } from '../../shared/types/types';
-import ErrorBoundary from '../../components/ErrorBoundary';
+import ErrorBoundary from '../../features/ErrorBoundary';
 
 export default function LocationList(){
 

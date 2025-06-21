@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss';
-import NavBar from '../../components/NavBar';
+import NavBar from '../../features/NavBar';
 
 export default function Header() {
   return (
