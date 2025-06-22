@@ -1,15 +1,15 @@
 import React, { lazy, Suspense } from 'react'
-import MainPage from '../../../pages/MainPage';
+import { MainPage } from '../../../pages/mainpage/index';
 import { Routes, Route } from 'react-router-dom';
 import { Category } from '../../../shared/types/types';
 import { AntForm } from '../../../shared/ui/Form/AntForm'
-import PrivateRoute from '../../../features/PrivateRoute';
+import { PrivateRoute } from '../../../features/privateroute/index';
 
-const CategoryPage = lazy(() => import('../../../pages/CategoryPage'))
-const RedirectPage = lazy(() => import('../../../pages/RedirectPage'))
-const CharactersDetailedPage = lazy(() => import('../../../pages/CharactersDetailedPage'))
-const LocationDetailedPage = lazy(() => import('../../../pages/LocationDetailedPage'))
-const EpisodesDetailedPage = lazy(() => import('../../../pages/EpisodesDetailedPage'))
+const CategoryPage = lazy(() => import('../../../pages/categorypage').then(module => ({ default: module.CategoryPage})))
+const RedirectPage = lazy(() => import('../../../pages/redirectpage').then(module => ({ default: module.RedirectPage })))
+const CharactersDetailedPage = lazy(() => import('../../../pages/charactersdetailedpage').then(module => ({ default: module.CharactersDetailedPage })))
+const LocationDetailedPage = lazy(() => import('../../../pages/locationdetailedpage').then(module => ({ default: module.LocationDetailedPage })))
+const EpisodesDetailedPage = lazy(() => import('../../../pages/episodesdetailedpage').then(module => ({ default: module.EpisodesDetailedPage })))
 
 export const AppRoutes = () => {
   return (

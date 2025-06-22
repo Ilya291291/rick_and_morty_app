@@ -1,3 +1,3 @@
-// import { AntForm } from "./AntForm"
+import { AntForm } from "./AntForm"
 
-// export AntForm
+export { AntForm }
