@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Category } from '../../../shared/types/types';
 import { AntForm } from '../../../shared/ui/Form/AntForm'
 import { PrivateRoute } from '../../../features/privateroute/index';
+import { AntSpin } from '../../../shared/ui/Spin'
 
 const CategoryPage = lazy(() => import('../../../pages/categorypage').then(module => ({ default: module.CategoryPage})))
 const RedirectPage = lazy(() => import('../../../pages/redirectpage').then(module => ({ default: module.RedirectPage })))
@@ -13,7 +14,7 @@ const EpisodesDetailedPage = lazy(() => import('../../../pages/episodesdetailedp
 
 export const AppRoutes = () => {
   return (
-    <Suspense fallback={<div>Загрузка...</div>}>
+    <Suspense fallback={<AntSpin />}>
       <Routes>
         <Route path="/" element={<MainPage />} />
             <Route path="/login" element={<AntForm />} />
